@@ -10,6 +10,7 @@ public class BookController {
 
     @GetMapping
     public String getBooks(){
-        return "get books was called";
+        String s = "get books was called";
+        return s;
     }
 }
