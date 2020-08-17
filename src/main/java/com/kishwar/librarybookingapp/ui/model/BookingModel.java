@@ -6,13 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="booking")
+@Table("booking")
 public class BookingModel {
-
-    @Id
-    @GeneratedValue
-    long id;
-
     @Column(name="user_id")
     int userId;
 
