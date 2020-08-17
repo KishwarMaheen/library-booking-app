@@ -1,6 +1,5 @@
 package com.kishwar.librarybookingapp.ui.model;
 
-import com.kishwar.librarybookingapp.ui.model.serializable.BookingId;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
