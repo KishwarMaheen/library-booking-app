@@ -19,4 +19,8 @@ public class UserService {
     public UserModel login(UserLoginModel user){
         return userRepository.getUserModelByUsername(user.getUsername());
     }
+
+    public UserModel getUser(String username){
+        return userRepository.getUserModelByUsername(username);
+    }
 }

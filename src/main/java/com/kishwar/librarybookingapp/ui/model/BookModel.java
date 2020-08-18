@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class BookModel {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     long id;
 
     @Column(name="name")

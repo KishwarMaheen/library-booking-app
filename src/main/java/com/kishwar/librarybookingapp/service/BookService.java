@@ -18,4 +18,8 @@ public class BookService {
         bookRepository.findAll().forEach(books::add);
         return books;
     }
+
+    public BookModel getBookById(long id){
+        return bookRepository.getBookModelById(id);
+    }
 }

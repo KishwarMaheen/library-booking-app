@@ -14,9 +14,24 @@ public class UserController {
     UserService userService;
 
     @PostMapping
-    public String createUser(@RequestBody UserModel userModel) throws Exception {
+    @CrossOrigin
+    public String createUser(@RequestParam(value = "username", required = false)
+                                         String username,
+                             @RequestParam(value = "password", required = false) String password,
+                             @RequestParam(value = "email", required = false) String email,
+                             @RequestParam(value = "phoneNumber", required = false) String phoneNumber)
+            throws Exception {
+        UserModel userModel = new UserModel();
+        userModel.setUsername(username);
+        System.out.println("Username: " + username);
+        userModel.setPassword(password);
+        System.out.println("Password: " + password);
+        userModel.setEmail(email);
+        System.out.println("Email: " + email);
+        userModel.setPhoneNumber(phoneNumber);
+        System.out.println("Phone Number: " + phoneNumber);
         userService.createUser(userModel);
-        return "User created!";
+        return "<h1>User created!</h1>";
     }
 
     @GetMapping

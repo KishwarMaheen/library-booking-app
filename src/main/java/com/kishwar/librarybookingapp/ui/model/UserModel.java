@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class UserModel {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
 
     @Column(name="username")
@@ -25,8 +25,7 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(long id, String username, String password, String email, String phoneNumber) {
-        this.id = id;
+    public UserModel(String username, String password, String email, String phoneNumber) {
         this.username = username;
         this.password = password;
         this.email = email;

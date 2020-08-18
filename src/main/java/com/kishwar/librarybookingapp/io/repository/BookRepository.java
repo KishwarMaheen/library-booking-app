@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository extends CrudRepository<BookModel, Long> {
     public BookModel getBookModelByName(String name);
+    public BookModel getBookModelById(long id);
 }

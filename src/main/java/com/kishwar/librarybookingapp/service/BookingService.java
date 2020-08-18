@@ -16,7 +16,36 @@ import java.util.Date;
 @Service
 public class BookingService {
 
+    @Autowired
+    BookService bookService;
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    BookingRepository bookingRepository;
+
     private static long count = 1;
+
+    public boolean createBooking(String username, long bookId){
+        UserModel userModel = userService.getUser(username);
+        BookModel bookModel = bookService.getBookById(bookId);
+        if(userModel!=null&&bookModel!=null){
+            BookingModel bookingModel = new BookingModel();
+            bookingModel.setUsers(userModel);
+            bookingModel.setBooks(bookModel);
+            Calendar cal = Calendar.getInstance();
+            Date date = cal.getTime();
+            bookingModel.setBookingDate(date);
+            cal.add(Calendar.DAY_OF_YEAR, 7);
+            date = cal.getTime();
+            bookingModel.setReturnDate(date);
+            bookingModel.setFine(0);
+            bookingRepository.save(bookingModel);
+            return true;
+        }
+        return false;
+    }
 }
 
 
