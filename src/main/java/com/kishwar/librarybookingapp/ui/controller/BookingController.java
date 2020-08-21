@@ -12,14 +12,10 @@ public class BookingController {
     @Autowired
     BookingService bookingService;
 
+    @CrossOrigin
     @PostMapping(path = "/{username}/{bookId}")
-    public String createBooking(@PathVariable String username, @PathVariable long bookId){
-        boolean created = bookingService.createBooking(username, bookId);
-        if(created) {
-            return "Booked!";
-        }else {
-            return "Error!";
-        }
+    public boolean createBooking(@PathVariable String username, @PathVariable long bookId){
+        return bookingService.createBooking(username, bookId);
     }
 
 }

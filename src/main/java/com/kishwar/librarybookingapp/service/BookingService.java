@@ -29,7 +29,9 @@ public class BookingService {
 
     public boolean createBooking(String username, long bookId){
         UserModel userModel = userService.getUser(username);
+        System.out.println(username);
         BookModel bookModel = bookService.getBookById(bookId);
+        System.out.println(bookId);
         if(userModel!=null&&bookModel!=null){
             BookingModel bookingModel = new BookingModel();
             bookingModel.setUsers(userModel);
