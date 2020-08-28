@@ -1,8 +1,6 @@
 package com.kishwar.librarybookingapp.ui.controller;
 
 import com.kishwar.librarybookingapp.service.UserService;
-import com.kishwar.librarybookingapp.ui.model.UserLoginModel;
-import com.kishwar.librarybookingapp.ui.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +26,6 @@ public class UserController {
     public int login(@RequestParam(value = "username", required = false)
                                  String username,
                      @RequestParam(value = "password", required = false) String password){
-        System.out.println(username);
         return userService.login(username, password);
     }
 }

@@ -1,7 +1,6 @@
 package com.kishwar.librarybookingapp.service;
 
 import com.kishwar.librarybookingapp.io.repository.UserRepository;
-import com.kishwar.librarybookingapp.ui.model.UserLoginModel;
 import com.kishwar.librarybookingapp.ui.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,16 +12,14 @@ public class UserService {
     UserRepository userRepository;
 
     public boolean createUser(String username, String password, String email, String phoneNumber){
-        if(userRepository.getUserModelByUsername(username)==null){
+        if(userRepository.getUserModelByUsername(username)==null
+        && !(username.equals("")) && !(password.equals("")) && !(email.equals("")) &&
+                !(phoneNumber.equals(""))){
             UserModel userModel = new UserModel();
             userModel.setUsername(username);
-            System.out.println("Username: " + username);
             userModel.setPassword(password);
-            System.out.println("Password: " + password);
             userModel.setEmail(email);
-            System.out.println("Email: " + email);
             userModel.setPhoneNumber(phoneNumber);
-            System.out.println("Phone Number: " + phoneNumber);
             userRepository.save(userModel);
             return true;
         }
