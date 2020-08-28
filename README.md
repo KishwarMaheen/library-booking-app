@@ -8,3 +8,5 @@ https://github.com/KishwarMaheen/library-booking-app-front-end
 
 Video demonstration:
 https://youtu.be/iK5vBgVU2B0
+
+Note: Special thanks to Mahmudul Hasan Sanchoy, my senior friend, for sitting together and helping me in developing this project.
